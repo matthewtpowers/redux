@@ -25,3 +25,22 @@
     "react"
   ]
 }
+
+
+
+{
+      "aps": {
+        "alert": "Pop that job2",
+        "badge": "1",
+        "content-available": 1,
+        "extra": {
+          "listings": [
+            1189023
+          ],
+          "wayup-push-frequency": "com.wayup.wayup.DAILY",
+          "wayup-push-type": "com.wayup.wayup.NEW_LISTING"
+        },
+        "sound": "default",
+        "title": "WayUp"
+      }
+    }
