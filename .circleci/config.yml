@@ -4,6 +4,10 @@ jobs:
     working_directory: ~/redux
     docker:
       - image: mtpowers/redux:latest
+      # -  can do multiple images here
     steps:
       - checkout
+      - run: npm install
+      - run: npm run clean
+      - run: npm run build
       - run: echo "hello world"
