@@ -1,1 +1,9 @@
 version: 2
+jobs:
+  build:
+    working_directory: ~/redux
+    docker:
+      - image: mtpowers/redux:latest
+      steps:
+        - checkout
+        - run: echo "hello world"
