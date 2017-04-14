@@ -4,6 +4,6 @@ jobs:
     working_directory: ~/redux
     docker:
       - image: mtpowers/redux:latest
-      steps:
-        - checkout
-        - run: echo "hello world"
+    steps:
+      - checkout
+      - run: echo "hello world"
