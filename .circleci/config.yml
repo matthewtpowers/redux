@@ -5,7 +5,8 @@ jobs:
     docker:
       - image: mtpowers/redux:latest
         environment:
-          TEST_ENV_VAR: testing
+          CIRCLE_TEST_REPORTS: test-results/
+          CIRCLE_ARTIFACTS: artifacts/
       # Just put this in as a placeholder for selenium
       - image: selenium/standalone-chrome:3.1.0
     steps:
@@ -23,3 +24,9 @@ jobs:
           key: react_requirements-{{ .Branch }}-{{ checksum "package.json"}}
           paths:
             - "node_modules"
+      - store_test_results:
+          path: $CIRCLE_TEST_REPORTS
+      - store_artifacts:
+          path: $CIRCLE_ARTIFACTS
+          destination: tr1
+
