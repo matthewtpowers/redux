@@ -5,9 +5,22 @@ jobs:
     docker:
       - image: mtpowers/redux:latest
       # -  can do multiple images here
+      environment:
+        TEST_ENV_VAR: testing
+      # Just put this in as a placeholder for selenium
+      image: selenium/standalone-chrome:3.1.0
     steps:
       - checkout
-      - run: npm install
-      - run: npm run clean
-      - run: npm run build
-      - run: echo "hello world"
+      - restore_cache:
+          key: react_requirements-{{ .Branch }}-{{ checksum "package.json"}}
+      - run:
+          name: Install/Clean/Build React
+          command: |
+            npm install
+            npm run clean
+            npm run build
+            echo "hello world"
+      - save_cache:
+          key: react_requirements-{{ .Branch }}-{{ checksum "package.json"}}
+          paths:
+            - "node_modules"
