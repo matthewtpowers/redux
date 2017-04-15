@@ -4,9 +4,8 @@ jobs:
     working_directory: ~/redux
     docker:
       - image: mtpowers/redux:latest
-      # -  can do multiple images here
-      environment:
-        TEST_ENV_VAR: testing
+        environment:
+          TEST_ENV_VAR: testing
       # Just put this in as a placeholder for selenium
       image: selenium/standalone-chrome:3.1.0
     steps:
